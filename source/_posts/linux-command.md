@@ -4,7 +4,7 @@ date: 2018-11-22 21:15:07
 tags: linux
 categories:
 - 技术类
-- Linux基本命令
+- Linux
 description: Linux 常用操作命令
 ---
 

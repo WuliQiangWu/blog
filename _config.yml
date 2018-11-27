@@ -41,7 +41,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: true
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -85,7 +85,9 @@ language: zh-CN
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@39.106.2.243:/home/git/repos/blog.git
+  branch: master
 
 search: false
 avatar: http://crystal.ajletme.com/media/Images/background.jpeg
