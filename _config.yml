@@ -17,7 +17,7 @@ url: http://yoursite.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
-
+favicon: /images/favicon.ico
 menu:
   首页: /
   关于: /about
@@ -90,7 +90,7 @@ deploy:
   branch: master
 
 search: false
-avatar: http://crystal.ajletme.com/media/Images/background.jpeg
+avatar: /images/averate.jpeg
 aside-description: 无论你从什么时候开始，重要的是开始后就不要停止。无论你从什么时候结束，重要的是结束后就不要悔恨。
 links:
   百度: https://www.baidu.com/
