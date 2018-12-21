@@ -9,6 +9,7 @@ tags:
 categories:
 - 技术类
 - python
+description: python的可迭代对象
 ---
 ##### 什么是迭代协议
 

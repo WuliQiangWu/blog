@@ -5,9 +5,9 @@
   "hexo": {
     "version": "3.8.0"
   },
-  "scripts":{
+  "scripts": {
     "deploy": "hexo clean && hexo g -d",
-    "hexo":"hexo",
+    "hexo": "hexo",
     "start": "hexo clean && hexo g && hexo s"
   },
   "dependencies": {
