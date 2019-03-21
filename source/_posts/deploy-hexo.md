@@ -89,3 +89,6 @@ description: 一步一步把hexo项目部署到自己服务器
         },
         
         最后直接输入 npm run delpoy 直接部署到服务器
+       
+[参考链接](http://www.swiftyper.com/2016/04/17/deploy-hexo-with-git-hook?_blank)
+[参考链接](https://blog.csdn.net/qq_35561857/article/details/81590953?_blank)
