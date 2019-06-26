@@ -8,7 +8,7 @@ categories:
 - vue
 description: VUE踩坑总结
 ---
-#### 在 vue-cli 环境开发中，多人合作一个项目，在pull代码重新执行的时候会遇到报错
+#### 以 vue-cli 作为开发环境且多人合作，pull代码重新执行时会遇到如下报错
     npm ERR! code ETARGET
     npm ERR! notarget No matching version found for har-validator@5.1.2
     npm ERR! notarget In most cases you or one of your dependencies are requesting
@@ -20,9 +20,9 @@ description: VUE踩坑总结
     npm ERR! A complete log of this run can be found in:
     npm ERR!     /Users/user/.npm/_logs/2018-12-04T07_14_54_875Z-debug.log
     
->  此时我们需要把项目里的 `package-lock.json` 删除掉，然后重新执行 `npm install ` 即可
+>  此时把项目里的 `package-lock.json` 删除掉，然后重新执行 `npm install ` 即可
 
-#### 用vue-cli 开发的时候，我们通常会引入一些包，有些包会很大，比如所你使用的ui库，像element-ui,mint-ui等，如果直接使用webpack打包的话，打包出来的wendor.js会非常大，对服务器压力等方面会造成一些影响，此时就可以使用webopack提供的`externals`来指明那些不用webpack打包,但是我们要在cdn上把这些包引入
+#### 用 vue-cli 开发的时候，经常会引入一些包，有些包会很大，比如所可能会使用的到ui库:element-ui,mint-ui等，如果直接使用webpack打包的话，生成的vendor.js会非常大，会对服务器造成一定的影响，此时就可以使用webopack提供的`externals`来指明那些不用webpack打包,前提是我们要在cdn上把这些包引入
 >在webpack.base.conf.js文件中
 
     module.exports = {
@@ -36,9 +36,9 @@ description: VUE踩坑总结
         'mint-ui': 'mint-ui'            # mint-ui为例
         'element-ui': 'ELEMENT'         # element-ui为例
       },
-      ****
+      ...
     }
->如果这样配置的话，在`main.js` 里面就要去掉 `Vue.use(xxx)` 这种用法，不然会报 `module undefeated` 这类错误
+>如果使用了上述配置，在`main.js` 里面就要去掉 `Vue.use(xxx)` 这种用法，不然会报 `module undefeated` 这类错误
 
 > 在index.html里面
 

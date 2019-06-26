@@ -37,7 +37,7 @@ description: 一步一步把hexo项目部署到自己服务器
       exit                         // 退出到 root 登录
       chown -R git:git /home/git/repos/blog.git     // 改变 blog.git 目录的拥有者为 git 用户
       
-##### 测试你的仓库是否可用
+##### 测试仓库是否可用
         git clone git@yourserver_ip:/home/git/repos/blog.git
         如果拉下来一个空仓库，就表示仓库建成功
 
@@ -72,7 +72,7 @@ description: 一步一步把hexo项目部署到自己服务器
         编辑完成之后保存退出
         
         nginx -s reload  //重启nginx
-###### 当你打开网站的时候可能会抱403错误，因为nginx没有权限访问 /home 目录下的文件，需要给/home 添加访问权限
+###### 如果打开网站的时候出现403错误，很大原因是nginx没有权限访问 /home 目录下的文件，需要给/home 添加访问权限
          chmod -R 777 /home/git 
     
         

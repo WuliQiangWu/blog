@@ -68,8 +68,3 @@ description: Spark Core核心
        def getPreferredLocations(split: Partition): Seq[String] = Nil 特性5
        val partitioner: Option[Partitioner] = None  特性4
        
-##### 图解RDD
-##### SparkContext&SparkConf
-##### pyspark脚本解析
-##### RDD创建方式
-##### Spark应用程序的开发及运行

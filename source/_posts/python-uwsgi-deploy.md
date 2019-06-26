@@ -159,7 +159,7 @@ sudo uwsgi -ini /root/test/uwsgi.ini
 
 #### 在浏览器里打上你要nginx配置的server_name就能看到你想看到页面了 不出意外的话，如果报错 可以再找找原因emmmm
 
-#### 如果你成功打开api接口，你会发现没有rest_framework的样式都没有了，浏览器控制台会出现各种静态文件路径404，别着急，是因为你没有把def的静态文件抽离出来，具体做法如下
+#### 如果你成功打开api接口，你会发现没有rest_framework的样式都没有了，浏览器控制台会出现各种静态文件路径404，别着急，是因为你没有把drf的静态文件抽离出来，具体做法如下
 #### 还记得我们再nginx里面配置的static代理目录么，它就是用来干这个事的
 ```
 在你的项目目录中运行  python manage.py collectstatic 
