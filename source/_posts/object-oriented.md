@@ -32,7 +32,7 @@ description: 对闭包和面向对象的理解
 
 #### 如何继承父类
 >
-> 1.使用call，apply 方法。 用法就是 子对象需要继承父对象的属性方法时，在子对象里面加上一行代码  farther(this,arguments)        father 是父对象的名字  这种方式叫做构造函数继承
+> 1.使用call，apply 方法。 用法就是 子对象需要继承父对象的属性方法时，在子对象里面加上一行代码  farther.call/apply(this,arguments)        father 是父对象的名字  这种方式叫做构造函数继承
 > 2.使用prototype 。 用法时 直接在子对象的prototype 绑上父对象实例。
 
 > * child.prototype = new Father()

@@ -120,6 +120,19 @@ description: 前端面试汇总(仅供个人面试之前复习参考)
 >#### async await
 ##### 其实它就是Generator函数的语法糖。
 ##### async函数使用起来，只要把Generator函数的**（*）**号换成async，yield换成await即可
+##### await 只能等待 promise 函数
+
+      捕获异常
+      async func1(){
+        try{
+           let data = awati func2()     
+              
+          }catch(e){
+            console.error(e)
+          }
+      }
+      
+      
 ##### 
 
 >#### 2、Object原型上加了一些方法，Object.keys()，Object.values()，Object.entries()
@@ -151,3 +164,98 @@ description: 前端面试汇总(仅供个人面试之前复习参考)
     从上面结果来看，填充函数只有在字符长度小于目标长度时才有效，若字符长度
     已经等于或小于目标长度时，填充字符不会起作用，而且目标长度如果小于字符
     串本身长度时，字符串也不会做截断处理，只会原样输出。
+    
+>### import、require 的区别 和 module.export 、export、 export default、exports的区别和联系
+    
+##### import 和require的区别
+    
+    import 是 es6 提供的一个导入模块的方式
+    require 是 CommonJS 提供的导入方式
+    
+    module.exports 和 exports 是 CommonJS 提供的导出方法
+    其实exports变量是指向module.exports，加载模块实际是加载该模块的module.exports.
+    不可以给exports 赋值，否则会改变 exports 指向
+    
+    
+    //example.js
+    var x = 5;
+    var addX = function (value) {
+      return value + x;
+    };
+    module.exports.x = x;
+    module.exports.addX = addX;
+    
+    require.js //
+    var example = require('./example.js');
+    console.log(example.x); // 5
+    console.log(example.addX(1));
+    
+    
+    export 和export default 是es6 提供的导出方法
+    
+    export其实和export default就是写法上面有点差别，一个是导出一个个单独接口，一个是默认导出一个整体接口。
+    使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。
+    这里就有一个简单写法不用去知道有哪些具体的暴露接口名，就用export default命令，为模块指定默认输出。
+    
+    //example.js -- export 
+    var f = 'Miel';
+    var name = 'Jack';
+    var data= 1988;
+    export {f, name, data};
+    // import.js 
+    // main.js
+    import {f, name, data} from './testA';
+    引入的时候使用解构赋值的方法 放在大括号里引用
+    
+    //example.js -- export default
+    export default function () {
+      console.log('foo');
+    }
+    // 或者写成
+    
+    function foo() {
+      console.log('foo');
+    }
+    export default foo;
+    
+    
+    // import-default.js
+    导出一个整体的接口，返回的就是一个函数，可以自己命名调用
+    import customName from './export-default';
+    customName(); // 'foo'
+
+>### 前端的垃圾回收机制
+    
+##### 1、标记清除
+###### 这是JavaScript最常见的垃圾回收方式。当变量进入执行环境的时候，比如在函数中声明一个变量，垃圾回收器将其标记为“进入环境”。当变量离开环境的时候（函数执行结束），将其标记为“离开环境”。垃圾回收器会在运行的时候给存储在内存中的所有变量加上标记，然后去掉环境中的变量，以及被环境中变量所引用的变量（闭包）的标记。在完成这些之后仍然存在的标记就是要删除的变量。
+
+##### 2、引用计数
+###### 引用计数的策略是跟踪记录每个值被使用的次数。当声明了一个变量并将一个引用类型赋值给该变量的时候，这个值的引用次数就加1。如果该变量的值变成了另外一个，则这个值的引用次数减1。当这个值的引用次数变为0的时候，说明没有变量在使用，这个值没法被访问。
+
+>### 几种DOM类型的节点
+##### 整个html文档是一个文档节点
+##### 每个HTML标签是一个元素节点
+##### 每一个HTML属性是一个属性节点
+##### 包含在html中的文本是一个文本节点
+
+
+>### 说说你对闭包的理解
+##### 闭包的形成是在一个函数中return 了一个函数出来。
+##### 它可以在函数内部调用外部的变量。它也可以避免全局变量污染
+##### 但是它会将变量一直保存在内存中，不会根据JS的垃圾回收机制被销毁，容易造成内存的泄漏
+##### 特征如下
+######  函数嵌套函数
+######  在函数内部可以引用外部的变量
+######  变量和参数不会参与垃圾回收机制
+
+>### 在JavaScript中使用innerHTML的弊端
+#####  通过innerHtml改变的内容更新每次都会刷新页面，效率很低，而且innerHtml 没有验证机制，如果在文档中插入错误的代码很容易造成一些未知的错误，使页面变得不稳定。
+
+>### 如何在不支持JavaScript的旧浏览器中隐藏JavaScript代码?
+##### 在标签之前添加  // -->，代码中没有引号。
+##### 旧浏览器现在将JavaScript代码视为一个长的HTML注释，而支持JavaScript的浏览器则将“”作为一行注释。
+
+>### DOM操作中怎样创建、添加、移除、替换、插入节点
+##### document.createDocumentFragment 创建DOM片段
+##### document.createElement 创建一个元素
+##### document.createTextNode  创建一个文本节点
